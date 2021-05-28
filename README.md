@@ -5,6 +5,8 @@ Remote Sensing Labeller is a graphical image annotation tool inspired by  the id
 
 It is written in Python and uses OpenCV for its graphical interface. Qt will be adopted in the furture versions.
 
+A brief tutorial can be found here: https://www.youtube.com/watch?v=CWerO7-YQCc
+
 ## Requirements
 
 - Ubuntu / macOS / Windows
