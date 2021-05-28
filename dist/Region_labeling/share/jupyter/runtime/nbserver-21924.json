@@ -1,0 +1,12 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "notebook_dir": "D:\\GitHub\\Sea_ice_classification_Jupyter",
+  "password": false,
+  "pid": 21924,
+  "port": 8888,
+  "secure": false,
+  "sock": "",
+  "token": "cdd665ecdc25c6dc62f24e5b48b49bb5f90b7966a2405be7",
+  "url": "http://localhost:8888/"
+}

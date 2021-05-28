@@ -1,6 +1,6 @@
 import cv2
 from skimage.segmentation import mark_boundaries, slic
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io as scio
 import tkinter as tk
@@ -101,8 +101,8 @@ def labelChoose():
     button3.pack()
     button4 = tk.Button(win, text="Multi-year Ice", bg="red", width=10, padx=10, command=label_MYI)
     button4.pack()
-    button5 = tk.Button(win, text="Lead", bg="mediumslateblue", width=10, padx=10, command=label_Mixed)
-    button5.pack()
+    # button5 = tk.Button(win, text="Lead", bg="mediumslateblue", width=10, padx=10, command=label_Mixed)
+    # button5.pack()
     button6 = tk.Button(win, text="Unknown", width=10, padx=10, command=label_Unknow)
     button6.pack()
     button7 = tk.Button(win, text="Mixed region", bg="lightgreen", width=10, padx=10, command=label_Mixed)
@@ -154,19 +154,19 @@ def mousePoints(event, x, y, flags, params):
             labeled_img_BGR[i, j, :] = (0, 0, 255)
             labeled_img_grey[i, j] = 4
         elif label == 5:
-            labeled_img_BGR[i, j, :] = (144,238,144)
-            labeled_img_grey[i, j] = 6  
-        elif label == 6:
             labeled_img_BGR[i, j, :] = (93,41,48)
-            labeled_img_grey[i, j] = 5
-        elif label == 7:
+            labeled_img_grey[i, j] = 5  
+        elif label == 6:
             labeled_img_BGR[i, j, :] = (144,238,144)
+            labeled_img_grey[i, j] = 6
+        elif label == 7:
+            labeled_img_BGR[i, j, :] = img[i,j]
             labeled_img_grey[i, j] = 7   
         cv2.namedWindow('Applied', cv2.WINDOW_NORMAL) 
         cv2.resizeWindow('Applied',500, 500)
         cv2.imshow("Applied",labeled_img_BGR )
-
-        cv2.imshow("HH/HV",img_boundary)
+        if cv2.getWindowProperty('HH/HV', 0) >= 0:
+            cv2.imshow("HH/HV",img_boundary)
 
 cv2.namedWindow('HH/HV', cv2.WINDOW_NORMAL) 
 cv2.resizeWindow('HH/HV',1000, 1000)
@@ -188,7 +188,7 @@ while 1:
     #     dfd
     # if key == ord('v'):
     #     dfd
-    if key == 27:
+    if key == 27 or not cv2.getWindowProperty('HH/HV', cv2.WND_PROP_VISIBLE):
         # break
         root = tk.Tk()
         MsgBox = messagebox.askquestion ('Exit Application','Are you sure you want to exit the application?',icon = 'warning')
